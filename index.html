@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>2000s–2025 Movie Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #ffb347;
+      --accent-soft: rgba(255, 179, 71, 0.15);
+      --text: #f5f5f5;
+      --muted: #a0a4b8;
+      --card: #111827;
+      --border: #1f2937;
+      --radius-lg: 18px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #050816 45%, #020617 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.03em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(255, 179, 71, 0.08);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.9fr);
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-left h1 {
+      font-size: 34px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-left h1 span {
+      color: var(--accent);
+    }
+
+    .hero-left p {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .badge span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316, #facc15);
+      color: #111827;
+      box-shadow: 0 10px 30px rgba(248, 181, 0, 0.4);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(255, 179, 71, 0.08);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-right {
+      background: radial-gradient(circle at top, rgba(248, 181, 0, 0.1), transparent 55%),
+                  linear-gradient(145deg, #020617, #020617 35%, #020617 100%);
+      border-radius: 24px;
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-chip {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-stat {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-highlight {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .hero-highlight span {
+      color: var(--accent);
+    }
+
+    .hero-list {
+      list-style: none;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-list li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      margin-top: 14px;
+      padding-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .section {
+      margin-bottom: 30px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 18px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .section p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 16px;
+    }
+
+    .list {
+      font-size: 13px;
+      color: var(--muted);
+      padding-left: 16px;
+    }
+
+    .list li {
+      margin-bottom: 4px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .footer {
+      margin-top: 24px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-right {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <div class="logo">Miles <span>Ontiveros</span></div>
+        <div class="tagline">2000s–2025 Movie Trend & Rating Analysis</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#features">Features</a>
+        <a href="#visuals">Visuals</a>
+        <a href="#get-data">Data</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Trending Movies in the <span>Streaming Era</span></h1>
+        <p>
+          Analyzing ~10,000 trending movies released between 2000 and 2025 to understand
+          how ratings, release volume, and high-rated films have changed as theaters
+          decline and streaming platforms take over.
+        </p>
+        <div class="hero-badges">
+          <div class="badge"><span>Python</span> · Pandas · NumPy</div>
+          <div class="badge">Matplotlib · Seaborn</div>
+          <div class="badge">CIS 2100 Final Project</div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary"
+             href="https://colab.research.google.com/github/milkks04/2000s---2025-Movie-Analysis/blob/main/notebooks/FinalProject_Ontiveros_Miles.ipynb"
+             target="_blank" rel="noopener noreferrer">
+            🚀 Open in Colab
+          </a>
+          <a class="btn btn-ghost"
+             href="https://github.com/milkks04/2000s---2025-Movie-Analysis"
+             target="_blank" rel="noopener noreferrer">
+            📄 View on GitHub
+          </a>
+          <a class="btn btn-ghost"
+             href="https://github.com/milkks04/2000s---2025-Movie-Analysis/raw/main/data/Trending_Movies.csv">
+            📥 Download CSV
+          </a>
+        </div>
+        <div class="hero-note">
+          Built as a final project and turned into a portfolio-ready dataset exploration.
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-chip">2000–2025 · ~10k movies</div>
+        <div class="hero-stat">Year-based summary · Ratings, counts & popularity</div>
+        <div class="hero-highlight">
+          Ratings mostly stable, <span>release volume explodes</span> in the 2020s.
+        </div>
+        <ul class="hero-list">
+          <li>Average ratings hover between ~6.0 and 6.8 for most years.</li>
+          <li>Number of movies per year spikes hard in the streaming era.</li>
+          <li>More high-rated movies (≥ 8.0) appear after 2015.</li>
+        </ul>
+        <div class="hero-tagline">
+          All analysis lives in a single Jupyter notebook with inline explanations
+          under each visualization.
+        </div>
+      </div>
+    </section>
+
+    <section id="overview" class="section">
+      <h2>Overview</h2>
+      <div class="grid-2">
+        <p>
+          This project focuses on movies released between 2000 and 2025. The main goal
+          is to track how movie quality and output changed as the industry moved from
+          a theater-first model to a streaming-dominated world.
+          <br /><br />
+          The analysis cleans the dataset, extracts the release year, and uses grouping,
+          summary statistics, and visualizations to compare different time periods.
+        </p>
+        <ul class="list">
+          <li>Release year extracted from full release dates.</li>
+          <li>Filtering to just 2000–2025 for a modern focus.</li>
+          <li>Year-level summaries for ratings, counts, votes & popularity.</li>
+          <li>HTML “INFO” blocks below each plot explain what the chart shows.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Features</h2>
+      <p>The notebook uses core Python, Pandas, and visualization tools to explore trends:</p>
+      <div class="pill-row">
+        <div class="pill">Reusable cleaning function: <code>clean_movies()</code></div>
+        <div class="pill">Helper: <code>get_movies_by_year()</code></div>
+        <div class="pill">Loop + conditional to find above-average movies</div>
+        <div class="pill">Year summary DataFrame</div>
+        <div class="pill">Line plot · Average rating per year</div>
+        <div class="pill">Bar chart · Movies released per year</div>
+        <div class="pill">Heatmap · High-rated movies by year & language</div>
+        <div class="pill">Scatter · Rating vs release year</div>
+      </div>
+    </section>
+
+    <section id="visuals" class="section">
+      <h2>Visuals</h2>
+      <p>
+        The full notebook includes multiple visualizations with explanations. A few highlights:
+      </p>
+      <ul class="list">
+        <li><strong>Average Rating by Year:</strong> shows ratings staying surprisingly stable.</li>
+        <li><strong>Movies per Year:</strong> reveals how the 2020s explode in volume.</li>
+        <li><strong>High-Rated Heatmap:</strong> shows when and in which languages 8.0+ films appear.</li>
+        <li><strong>Rating vs Year Scatter:</strong> shows how rating spread widens in the streaming era.</li>
+      </ul>
+      <p style="font-size: 12px; color: #9ca3af; margin-top: 6px;">
+        To see the actual plots, open the notebook in Colab using the button above.
+      </p>
+    </section>
+
+    <section id="get-data" class="section">
+      <h2>Get the Data</h2>
+      <p>
+        The raw trending movies CSV and the analysis notebook are both hosted in the GitHub
+        repository linked at the top of this page.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary"
+           href="https://github.com/milkks04/2000s---2025-Movie-Analysis/raw/main/data/Trending_Movies.csv">
+          📥 Download Dataset
+        </a>
+        <a class="btn btn-ghost"
+           href="https://github.com/milkks04/2000s---2025-Movie-Analysis/blob/main/notebooks/FinalProject_Ontiveros_Miles.ipynb">
+          📓 View Notebook on GitHub
+        </a>
+      </div>
+    </section>
+
+    <div class="footer">
+      Built by Miles Ontiveros · 2000s–2025 Movie Analysis · Deployed with Vercel
+    </div>
+  </div>
+</body>
+</html>
