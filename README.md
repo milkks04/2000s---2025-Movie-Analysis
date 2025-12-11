@@ -4,6 +4,9 @@ This project analyzes trending movies released between **2000 and 2025** to see 
 ratings, popularity, and release patterns have changed over time. It was created as my 
 CIS 2100 final project and as a portfolio piece.
 
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/milkks04/2000s---2025-Movie-Analysis/blob/main/notebooks/FinalProject_Ontiveros_Miles.ipynb)
+
 ---
 
 ## 📚 Overview
