@@ -418,36 +418,60 @@
     <section id="visuals" class="section">
       <h2>Visuals</h2>
       <p>
-        The full notebook includes multiple visualizations with explanations. A few highlights:
+        Below are some of the main visualizations generated in the notebook. Each one has a full explanation inside the Colab notebook.
       </p>
-      <ul class="list">
-        <li><strong>Average Rating by Year:</strong> shows ratings staying surprisingly stable.</li>
-        <li><strong>Movies per Year:</strong> reveals how the 2020s explode in volume.</li>
-        <li><strong>High-Rated Heatmap:</strong> shows when and in which languages 8.0+ films appear.</li>
-        <li><strong>Rating vs Year Scatter:</strong> shows how rating spread widens in the streaming era.</li>
-      </ul>
-      <p style="font-size: 12px; color: #9ca3af; margin-top: 6px;">
-        To see the actual plots, open the notebook in Colab using the button above.
-      </p>
-    </section>
 
-    <section id="get-data" class="section">
-      <h2>Get the Data</h2>
-      <p>
-        The raw trending movies CSV and the analysis notebook are both hosted in the GitHub
-        repository linked at the top of this page.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary"
-           href="https://github.com/milkks04/2000s---2025-Movie-Analysis/raw/main/data/Trending_Movies.csv">
-          📥 Download Dataset
-        </a>
-        <a class="btn btn-ghost"
-           href="https://github.com/milkks04/2000s---2025-Movie-Analysis/blob/main/notebooks/FinalProject_Ontiveros_Miles.ipynb">
-          📓 View Notebook on GitHub
-        </a>
-      </div>
-    </section>
+  <div class="gallery" style="
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+  ">
+    <div class="gallery-item" style="
+        background: #111827;
+        border-radius: 14px;
+        padding: 12px;
+        border: 1px solid rgba(55, 65, 81, 0.7);
+    ">
+      <img src="assets/Visulization 1_Line Plot.png" alt="Line Plot" style="width: 100%; border-radius: 10px;">
+      <p style="font-size: 13px; margin-top: 6px; color: #9ca3af;">Average Movie Rating by Year</p>
+    </div>
+
+    <div class="gallery-item" style="
+        background: #111827;
+        border-radius: 14px;
+        padding: 12px;
+        border: 1px solid rgba(55, 65, 81, 0.7);
+    ">
+      <img src="assets/Visulization 2_Bar Chart.png" alt="Bar Chart" style="width: 100%; border-radius: 10px;">
+      <p style="font-size: 13px; margin-top: 6px; color: #9ca3af;">Number of Movies Released Per Year</p>
+    </div>
+
+    <div class="gallery-item" style="
+        background: #111827;
+        border-radius: 14px;
+        padding: 12px;
+        border: 1px solid rgba(55, 65, 81, 0.7);
+    ">
+      <img src="assets/Visulization 3_HeatMap.png" alt="Heatmap" style="width: 100%; border-radius: 10px;">
+      <p style="font-size: 13px; margin-top: 6px; color: #9ca3af;">High-Rated Movies Heatmap (≥ 8.0)</p>
+    </div>
+
+    <div class="gallery-item" style="
+        background: #111827;
+        border-radius: 14px;
+        padding: 12px;
+        border: 1px solid rgba(55, 65, 81, 0.7);
+    ">
+      <img src="assets/Visulization 4_Scatter Plot.png" alt="Scatter Plot" style="width: 100%; border-radius: 10px;">
+      <p style="font-size: 13px; margin-top: 6px; color: #9ca3af;">Rating vs Release Year Scatter Plot</p>
+    </div>
+  </div>
+
+  <p style="font-size: 12px; color: #9ca3af; margin-top: 10px;">
+    View all visualizations in full resolution inside the Colab notebook.
+  </p>
+</section>
 
     <div class="footer">
       Built by Miles Ontiveros · 2000s–2025 Movie Analysis · Deployed with Vercel
